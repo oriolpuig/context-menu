@@ -1,1 +1,60 @@
-Hello World
+<html>
+
+<head>
+    <title>Context Menu PoC</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Context Menu</a>
+            </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Context Menu</h1>
+            <p>A context menu made with Javascript</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h2>Specifications</h2>
+                </div>
+                <ul>
+                    <li>Allow more than 2 levels.</li>
+                    <li>Display it properly depending the size of the window.</li>
+                    <li>Display it properly when we have alot of options, and the context-menu will not disappear of the window.</li>
+                </ul>
+                <div class="page-header">
+                    <h2>Demo</h2>
+                </div>
+                <p>Do right click on the window, and play with it.</p>
+                <input id="result" type="text" class="form-control" disabled/>
+                <div class="page-header">
+                    <h2>TO DO: </h2>
+                </div>
+                <ul id="todoList">
+                    <li class="item-done"><input type="checkbox" disabled checked> Javascript support.</li>
+                    <li><input type="checkbox" disabled /> Add icon support.</li>
+                    <li><input type="checkbox" disabled /> AngularJS support.</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <footer>
+            <p>developed by Oriol Puig</p>
+        </footer>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="./js/context-menu.js"></script>
+</body>
+
+</html>

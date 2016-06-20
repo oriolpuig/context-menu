@@ -1,0 +1,23 @@
+@import 'components/index';
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+#todoList {
+    margin: 0;
+    list-style: none;
+    float: left;
+    
+    li {
+        input[type=checkbox] {
+            margin-left: -10px;
+            margin-right: 5px;
+        }
+
+        &.item-done {
+            text-decoration: line-through;
+        }
+    }
+}

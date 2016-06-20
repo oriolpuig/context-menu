@@ -1,0 +1,87 @@
+/***
+ *  Context Menu component
+ */
+.context-menu {
+  display: none;
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  z-index: 999; }
+  .context-menu .context-wrapper {
+    position: relative; }
+  .context-menu ul {
+    min-width: 200px;
+    min-width: 200px;
+    max-height: 250px;
+    color: #337ab7;
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-color: #EEE;
+    border: 2px solid #DDD;
+    box-shadow: 5px 5px 5px #A8A8A8;
+    /*use scrolling if necessary, but don't show a horizontal scrollbar*/
+    overflow-x: hidden;
+    overflow-y: auto; }
+    .context-menu ul li {
+      /*the submenus cannot have a positioned parent inside the scrollable list*/
+      position: static;
+      list-style: none;
+      padding: 0 30px;
+      line-height: 30px;
+      white-space: nowrap; }
+      .context-menu ul li:hover {
+        background-color: #428bca; }
+      .context-menu ul li:hover,
+      .context-menu ul li:hover > a {
+        color: #FFF;
+        cursor: pointer;
+        text-decoration: none; }
+      .context-menu ul li.divider,
+      .context-menu ul li.parent > a:after,
+      .context-menu ul li:hover > .context-wrapper {
+        /*display the submenu when we hover on the menu item*/
+        display: block; }
+      .context-menu ul li.parent > a:after {
+        float: right;
+        width: 0;
+        height: 0;
+        margin-top: 8px;
+        margin-right: -12px;
+        border-color: transparent;
+        border-left-color: #cccccc;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        content: " "; }
+      .context-menu ul li.divider {
+        margin: auto;
+        margin-bottom: 3px;
+        border-bottom: 1px solid #ddd;
+        cursor: default;
+        width: 90%; }
+      .context-menu ul li > .context-wrapper {
+        cursor: auto;
+        /*position on top of the menu item*/
+        position: absolute;
+        /*these are not useful because our positioned parent is not the menu item*/
+        /*top: 0;*/
+        /*left: 75%;*/
+        /*show on top of the menu item*/
+        z-index: 10;
+        /*do not show the submenu by default*/
+        display: none; }
+
+body {
+  padding-top: 50px;
+  padding-bottom: 20px; }
+
+#todoList {
+  margin: 0;
+  list-style: none;
+  float: left; }
+  #todoList li input[type=checkbox] {
+    margin-left: -10px;
+    margin-right: 5px; }
+  #todoList li.item-done {
+    text-decoration: line-through; }

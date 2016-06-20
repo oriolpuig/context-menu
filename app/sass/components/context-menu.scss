@@ -1,0 +1,106 @@
+/***
+ *  Context Menu component
+ */
+ $context_menu_background: #EEE;
+ $context_menu_border_width: 2px;
+ $context_menu_border_color: #DDD;
+ $context_menu_shadow_color: #A8A8A8;
+
+ $context_menu_color_default: #337ab7;
+ $context_menu_color_default_hover: #FFF;
+ $context_menu_color_li_hover: #428bca;
+
+.context-menu {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    z-index: 999; 
+
+    .context-wrapper {
+        position: relative;
+    }
+
+    ul {
+        min-width: 200px;
+        min-width: 200px;
+        max-height: 250px;
+        color: $context_menu_color_default;
+        font-family: sans-serif;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        background-color: $context_menu_background;
+        border: $context_menu_border_width  solid $context_menu_border_color;
+        box-shadow: 5px 5px 5px $context_menu_shadow_color;
+
+        /*use scrolling if necessary, but don't show a horizontal scrollbar*/
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        li {
+            /*the submenus cannot have a positioned parent inside the scrollable list*/
+            position: static;
+            list-style: none;
+            padding: 0 30px;
+            line-height: 30px;
+            white-space: nowrap;
+
+            &:hover{
+                background-color: $context_menu_color_li_hover;
+            }
+            
+            &:hover,
+            &:hover > a{
+                color: $context_menu_color_default_hover;
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            &.divider,
+            &.parent > a:after,
+            &:hover > .context-wrapper {
+                /*display the submenu when we hover on the menu item*/
+                display: block;
+            }
+
+            &.parent > a:after {
+                float: right;
+                width: 0;
+                height: 0;
+                margin-top: 8px;
+                margin-right: -12px;
+                border-color: transparent;
+                border-left-color: #cccccc;
+                border-style: solid;
+                border-width: 5px 0 5px 5px;
+                content: " ";
+            }
+
+            &.divider {
+                margin: auto;
+                margin-bottom: 3px;
+                border-bottom: 1px solid #ddd;
+                cursor: default;
+                width: 90%;
+            }
+
+            > .context-wrapper {
+                cursor: auto;
+
+                /*position on top of the menu item*/
+                position: absolute;
+
+                /*these are not useful because our positioned parent is not the menu item*/
+                /*top: 0;*/
+                /*left: 75%;*/
+
+                /*show on top of the menu item*/
+                z-index: 10;
+
+                /*do not show the submenu by default*/
+                display: none;
+            }
+        }
+    }
+}

@@ -225,12 +225,12 @@ $(function () {
         }, 50);
     });
 
-    // $('input[name=myInput]').change(function() { ... });
+    
     function generateContextMenuData() {
         var data = [];
 
-        data.push(["Few Options", generateChildByString("Add")]);
-        data.push(["Many Options", generateChildByString("Edit", 100)]);
+        data.push(["Few Options", generateChildByString("Add", 5, false)]);
+        data.push(["Many Options", generateChildByString("Edit", 100, false)]);
         data.push(["Child Options", generateChildByString("Options", 10, true)]);
         data.push(null);
         data.push(["Without Childs", "Without Childs"]);
@@ -238,7 +238,7 @@ $(function () {
         return data;
     }
 
-    function generateChildByString(str = "", num = 5, hasChild = false) {
+    function generateChildByString(str, num, hasChild) {
         var childs = [];
 
         for (var i = 0; i < num; i++) {
